@@ -8,8 +8,8 @@ import com.northcoders.calculatorapp.BR;
 
 public class DisplayText extends BaseObservable {
 
-    private String displayTextString = "0";
-    
+    private String displayTextString;
+
 
     public DisplayText(String displayTextString) {
         this.displayTextString = displayTextString;
