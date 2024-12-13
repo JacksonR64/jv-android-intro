@@ -104,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
     private void operate(String op) {
         String input = dt.getDisplayTextString();
 
-        if (input.endsWith(op))
+        if (input.equals("0"))
+            dt.setDisplayTextString("0" + op);
+        else if (input.endsWith(op))
             doNothing();
         else if (input.matches(".*[+\\-*/]"))
             dt.setDisplayTextString(input.substring(0, input.length() - 1) + op);

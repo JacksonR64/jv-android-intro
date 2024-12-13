@@ -33,7 +33,14 @@ public class DisplayText extends BaseObservable {
             displayTextString = displayTextString.substring(0, displayTextString.indexOf('.'));
         }
         // Remove trailing zero e.g. 05 or 01234 but not 0 or 0.****
-        if (displayTextString.startsWith("0")  && displayTextString.length() > 1 && displayTextString.charAt(1) != '.'){
+        if (displayTextString.startsWith("0")
+                && displayTextString.length() > 1
+                && displayTextString.charAt(1) != '.'
+                && displayTextString.charAt(1) != '+'
+                && displayTextString.charAt(1) != '-'
+                && displayTextString.charAt(1) != '*'
+                && displayTextString.charAt(1) != '/'
+        ){
             displayTextString = displayTextString.substring(1);
         }
         return displayTextString;
