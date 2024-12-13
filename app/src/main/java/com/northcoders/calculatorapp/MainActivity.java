@@ -2,10 +2,8 @@ package com.northcoders.calculatorapp;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -20,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+// TODO: Fix bug when operation on a 0 result causing crash
 
     ActivityMainBinding activityMainBinding;
     DisplayText dt = new DisplayText("0");
@@ -63,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
         Button buttonBackSpace = findViewById(R.id.buttonBackSpace);
         Button buttonDecimalSpace = findViewById(R.id.buttonDecimalPoint);
 
-        TextView displayText = findViewById(R.id.display);
-
 
         button1.setOnClickListener(v -> number("1"));
         button2.setOnClickListener(v -> number("2"));
@@ -97,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         dt.setDisplayTextString("0");
     }
 
-    @NonNull
     private void number(String num) {
         String input = dt.getDisplayTextString();
         if (input.equals("0"))
@@ -106,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
             dt.setDisplayTextString(input + num);
     }
 
-    @NonNull
     private void operate(String op) {
         String input = dt.getDisplayTextString();
 
@@ -118,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
             dt.setDisplayTextString(input + op);
     }
 
-    @NonNull
     private void decimalPoint() {
         String input = dt.getDisplayTextString();
 
@@ -128,12 +121,10 @@ public class MainActivity extends AppCompatActivity {
             dt.setDisplayTextString(input + ".");
     }
 
-    @NonNull
     private void doNothing() {
         dt.setDisplayTextString(dt.getDisplayTextString());
     }
 
-    @NonNull
     private void backSpace() {
         String input = dt.getDisplayTextString();
         dt.setDisplayTextString(input.substring(0, input.length() - 1));
