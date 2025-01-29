@@ -20,4 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Calculator App"
-include ':app'
+include ':androidApp'

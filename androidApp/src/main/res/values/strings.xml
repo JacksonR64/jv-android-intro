@@ -17,4 +17,8 @@
     <string name="_equals">=</string>
     <string name="_divide">/</string>
     <string name="_zero">0</string>
+    <string name="plusMinusButton">+/-</string>
+    <string name="modularButton">%</string>
+    <string name="backspaceButton">bs</string>
+    <string name="decimalPointButton">.</string>
 </resources>

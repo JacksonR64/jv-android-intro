@@ -29,7 +29,7 @@ public class DisplayText extends BaseObservable {
     @NonNull
     private static String cleanZeros(String displayTextString) {
         // Remove ".0" if on end of string
-        if (displayTextString.endsWith(".0")){
+        if (displayTextString.endsWith(".0")) {
             displayTextString = displayTextString.substring(0, displayTextString.indexOf('.'));
         }
         // Remove trailing zero e.g. 05 or 01234 but not 0 or 0.****
@@ -40,7 +40,7 @@ public class DisplayText extends BaseObservable {
                 && displayTextString.charAt(1) != '-'
                 && displayTextString.charAt(1) != '*'
                 && displayTextString.charAt(1) != '/'
-        ){
+        ) {
             displayTextString = displayTextString.substring(1);
         }
         return displayTextString;

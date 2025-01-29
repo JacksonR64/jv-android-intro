@@ -18,14 +18,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-// TODO: Fix bug when operation on a 0 result causing crash
 
     ActivityMainBinding activityMainBinding;
-    DisplayText dt = new DisplayText("0");
+    final DisplayText dt = new DisplayText("0");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("on create");
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         activityMainBinding.setDisplayText(dt);
@@ -134,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculate() {
         String input = dt.getDisplayTextString();
-        System.out.println("Calculating..." + input);
 
         if (input.matches(".*[+\\-*/]"))
             doNothing();
@@ -153,15 +150,14 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0; i < operators.size(); i++) {
                 switch (operators.get(i)) {
-                    case '+' -> output += numbers[i+1];
-                    case '-' -> output -= numbers[i+1];
-                    case '*' -> output *= numbers[i+1];
-                    case '/' -> output /= numbers[i+1];
-                    default -> System.out.println("Error: operator not recognised");
+                    case '+' -> output += numbers[i + 1];
+                    case '-' -> output -= numbers[i + 1];
+                    case '*' -> output *= numbers[i + 1];
+                    case '/' -> output /= numbers[i + 1];
+                    default -> output = 0;
                 }
             }
 
-            System.out.println("result = " + output);
             dt.setDisplayTextString(String.valueOf(output));
         }
     }
